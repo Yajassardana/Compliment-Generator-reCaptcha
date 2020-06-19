@@ -8,10 +8,15 @@ app.use(express.json());
 
 app.get('/', (_, res) => res.sendFile(__dirname + '/index.html'));
 
+const generateCompliment = async() =>{
+  const body = await fetch('https://complimentr.com/api').then(res => res.json());
+  console.log(body);
+}
+
 app.post('/subscribe', async (req, res) => {
   if (!req.body.captcha)
     return res.json({ success: false, msg: 'Please select captcha' });
-
+ generateCompliment();
   // Secret key
   const secretKey = '6LdwA6YZAAAAAMmkDQkPT7O4kRSjLC11a6Yl9Mrx';
 
