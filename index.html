@@ -59,6 +59,7 @@
 					class="btn"
 				/>
 			</form>
+			<div id="compliment"></div>
 		</div>
 
 		<script>
@@ -69,6 +70,7 @@
 
 					const name = document.querySelector('#name').value;
 					const captcha = document.querySelector('#g-recaptcha-response').value;
+					const compliment = document.querySelector('#compliment');
 
 					return fetch('/subscribe', {
 						method: 'POST',
@@ -77,9 +79,10 @@
 					})
 						.then((res) => res.json())
 						.then((data) => {
-							console.log(data);
-							alert(data.msg);
-							if (data.success) return location.reload();
+							if (!data.success) alert(data.msg);
+							if (typeof data.compliment !== 'undefined') {
+								compliment.innerHTML = data.compliment;
+							}
 						});
 				});
 		</script>

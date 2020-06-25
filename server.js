@@ -39,7 +39,11 @@ app.post('/subscribe', async (req, res) => {
 		return res.json({ success: false, msg: 'Failed captcha verification' });
 
 	// If successful
-	return res.json({ success: true, msg: 'Captcha passed', compliment });
+	return res.json({
+		success: true,
+		msg: 'Captcha passed',
+		compliment: compliment.compliment,
+	});
 });
 
 app.listen(3000, () => console.log('Server started on port 3000'));
