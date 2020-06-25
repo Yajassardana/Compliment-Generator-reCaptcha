@@ -1,16 +1,19 @@
 {
-  "name": "recaptchanode",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server"
-  },
-  "author": "Brad Traversy",
-  "license": "MIT",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.15.4",
-    "node-fetch": "^2.6.0"
-  }
+	"name": "recaptchanode",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server"
+	},
+	"author": "Brad Traversy",
+	"license": "MIT",
+	"dependencies": {
+		"dotenv": "^8.2.0",
+		"express": "^4.15.4",
+		"node-fetch": "^2.6.0"
+	},
+	"engines": {
+		"node": "12.16.1"
+	}
 }
