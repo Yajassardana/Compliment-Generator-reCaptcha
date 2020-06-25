@@ -55,13 +55,53 @@
 				<input
 					style="cursor: pointer; background-color: #ffd152; color: #343233;"
 					type="submit"
-					value="Generate Compliment"
+					value="Flatter Me"
 					class="btn"
+					data-toggle="modal"
+					data-target="#exampleModalCenter"
 				/>
 			</form>
-			<div id="compliment"></div>
 		</div>
 
+		<!-- *MODAL -->
+		<div
+			class="modal fade"
+			id="exampleModalCenter"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content" style="background-color: #343233;">
+					<div class="modal-header">
+						<!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div
+						id="compliment"
+						class="modal-body"
+						style="color: aliceblue; font-size: 30px; font-family: sans-serif;"
+					></div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-dismiss="modal"
+						>
+							Thanks, I'm flattered
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script>
 			document
 				.getElementById('subscribeForm')
@@ -79,12 +119,31 @@
 					})
 						.then((res) => res.json())
 						.then((data) => {
-							if (!data.success) alert(data.msg);
+							if (!data.success) {
+								alert(data.msg);
+								return location.reload();
+							}
+
 							if (typeof data.compliment !== 'undefined') {
-								compliment.innerHTML = data.compliment;
+								compliment.innerHTML = name + ', ' + data.compliment + ' 🥰';
 							}
 						});
 				});
 		</script>
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>
