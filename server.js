@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring');
@@ -21,7 +22,7 @@ app.post('/subscribe', async (req, res) => {
 	let compliment = await generateCompliment();
 	console.log(compliment);
 	// Secret key
-	const secretKey = '6LdwA6YZAAAAAMmkDQkPT7O4kRSjLC11a6Yl9Mrx';
+	const secretKey = process.env.SECRET_KEY;
 
 	// Verify URL
 	const query = stringify({

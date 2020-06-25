@@ -9,6 +9,7 @@
   "author": "Brad Traversy",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.15.4",
     "node-fetch": "^2.6.0"
   }
